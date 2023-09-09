@@ -29,3 +29,11 @@ https://habr.com/ru/companies/cloud4y/articles/530516/
 https://wiki.gentoo.org/wiki/SSH_jump_host
 https://docs.pritunl.com/docs/connecting
 https://linuxize.com/post/using-the-ssh-config-file/
+
+# ДЗ Основные сервисы Yandex Cloud
+
+testapp_IP = 51.250.76.218
+testapp_port = 9292 
+user yc_user
+
+
