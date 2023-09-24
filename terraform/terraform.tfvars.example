@@ -1,0 +1,8 @@
+cloud_id  		= "REDACTED"
+folder_id		= "REDACTED"
+zone			= "REDACTED"
+public_key_path		= "REDACTED"
+private_key_path	= "REDACTED"
+image_id		= "REDACTED"
+subnet_id		= "REDACTED"
+service_account_key_file = "REDACTED"
