@@ -16,7 +16,7 @@ terraform {
 #	}
 
 provider "yandex" {
-  token     = "y0_AgAAAABwLnjJAATuwQAAAADrjluJEiBKWNgKS-C9giD7RsEd-LNi9EM"
+  token     = var.ya_token
   cloud_id  = var.cloud_id
   folder_id = var.folder_id
   zone      = var.zone
@@ -35,7 +35,7 @@ resource "yandex_compute_instance" "app" {
   boot_disk {
     initialize_params {
       # Указать id образа созданного в предыдущем домашнем задании
-      image_id = "fd83eipmnqnjtiiu22j2"
+      image_id = var.image_id
     }
   }
   network_interface {

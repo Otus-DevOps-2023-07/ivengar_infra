@@ -25,6 +25,9 @@ variable "image_id" {
 variable "subnet_id" {
   description = "Subnet"
 }
+variable "ya_token" {
+  description = "token"
+}
 # variable service_account_key_file{
 #  description = "key .json"
 #}
