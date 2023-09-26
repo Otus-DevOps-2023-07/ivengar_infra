@@ -36,4 +36,21 @@ testapp_IP = 51.250.76.218
 testapp_port = 9292 
 user yc_user
 
+# ДЗ Подготовка образов с помощью Packer
+
+Создал набор параметризуемых параметров:
+
+service_account_key_file 
+folder_id 
+source_image_family 
+ssh_username 
+platform_id 
+image_family 
+image_min_disk_size_gb
+disk_size_gb
+zone 
+use_ipv4_nat
+
+https://developer.hashicorp.com/packer/guides/hcl/variables
+https://developer.hashicorp.com/packer/integrations/hashicorp/yandex/latest/components/builder/yandex
 
