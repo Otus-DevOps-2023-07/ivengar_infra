@@ -47,7 +47,7 @@ resource "yandex_compute_instance" "lb-server" {
 }
 resource "yandex_compute_instance" "app" {
   count = 2
-  name = "reddit-base-${count.index}"
+  name = "reddit-app-${count.index}"
   metadata = {
     # ssh-keys = "ubuntu:${file("~/.ssh/appuser.pub")}"
     ssh-keys = "ycuser:${file(var.public_key_path)}"
