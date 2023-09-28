@@ -54,3 +54,14 @@ use_ipv4_nat
 https://developer.hashicorp.com/packer/guides/hcl/variables
 https://developer.hashicorp.com/packer/integrations/hashicorp/yandex/latest/components/builder/yandex
 
+# ДЗ Знакомство с Terraform
+
+1. Выполнил настройку по слайдам дз с 1 по 46
+2. Создал input переменную для приватного ключа
+3. Определил input переменную для задания зоны
+4. Отформатировал файлы используя команду **terraform fmt**
+5. Создал файл `terraform.example.tfvars`, 
+6. Создал файл lb.tf
+7. Добавил планировщик и reddit-app-2
+8. Сделал через count
+
