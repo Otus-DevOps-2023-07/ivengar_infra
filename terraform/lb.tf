@@ -1,6 +1,6 @@
-resource "yandex_alb_target_group" "applbtg" {
+resource "yandex_lb_target_group" "applbtg" {
   name      = "app-lb"
-  region_id = "ru-central1-a"
+  region_id = "ru-central1"
 
   target {
     address   = yandex_compute_instance.app[0].network_interface[0].ip_address
@@ -13,6 +13,7 @@ resource "yandex_alb_target_group" "applbtg" {
 }
 
 resource "yandex_lb_network_load_balancer" "lb" {
+  name = "lb_server"
   listener {
     name = "lb-listener"
     port = 9292
@@ -21,7 +22,7 @@ resource "yandex_lb_network_load_balancer" "lb" {
     }
   }
   attached_target_group {
-    target_group_id = yandex_alb_target_group.applbgt.id
+    target_group_id = yandex_lb_target_group.applbtg.id
 
     healthcheck {
       name                = "http"
