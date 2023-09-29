@@ -33,22 +33,22 @@ https://linuxize.com/post/using-the-ssh-config-file/
 # ДЗ Основные сервисы Yandex Cloud
 
 testapp_IP = 51.250.76.218
-testapp_port = 9292 
+testapp_port = 9292
 user yc_user
 
 # ДЗ Подготовка образов с помощью Packer
 
 Создал набор параметризуемых параметров:
 
-service_account_key_file 
-folder_id 
-source_image_family 
-ssh_username 
-platform_id 
-image_family 
+service_account_key_file
+folder_id
+source_image_family
+ssh_username
+platform_id
+image_family
 image_min_disk_size_gb
 disk_size_gb
-zone 
+zone
 use_ipv4_nat
 
 https://developer.hashicorp.com/packer/guides/hcl/variables
@@ -60,8 +60,7 @@ https://developer.hashicorp.com/packer/integrations/hashicorp/yandex/latest/comp
 2. Создал input переменную для приватного ключа
 3. Определил input переменную для задания зоны
 4. Отформатировал файлы используя команду **terraform fmt**
-5. Создал файл `terraform.example.tfvars`, 
+5. Создал файл `terraform.example.tfvars`,
 6. Создал файл lb.tf
 7. Добавил планировщик и reddit-app-2
 8. Сделал через count
-

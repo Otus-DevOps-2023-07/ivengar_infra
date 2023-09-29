@@ -13,7 +13,7 @@ resource "yandex_lb_target_group" "applbtg" {
 }
 
 resource "yandex_lb_network_load_balancer" "lb" {
-  name = "lb_server"
+  name = "lb-server"
   listener {
     name = "lb-listener"
     port = 9292
