@@ -21,7 +21,7 @@ provider "yandex" {
   folder_id = var.folder_id
   zone      = var.zone
 }
-  
+
 resource "yandex_compute_instance" "lb-server" {
   name = "lb-server"
   metadata = {
@@ -46,7 +46,7 @@ resource "yandex_compute_instance" "lb-server" {
   }
 }
 resource "yandex_compute_instance" "app" {
-  count = 2
+  count = 1
   name = "reddit-app-${count.index}"
   metadata = {
     # ssh-keys = "ubuntu:${file("~/.ssh/appuser.pub")}"
@@ -64,7 +64,8 @@ resource "yandex_compute_instance" "app" {
   }
   network_interface {
     # Указан id подсети default-ru-central1-a
-    subnet_id = "e9bkvpg4erv0vcrhetcm"
+    # subnet_id = "e9bkvpg4erv0vcrhetcm"
+    subnet_id = yandex_vpc_subnet.app-subnet.id
     nat       = true
   }
 
@@ -84,4 +85,14 @@ resource "yandex_compute_instance" "app" {
     # путь до приватного ключа
     private_key = file(var.private_key_path)
   }
+}
+resource "yandex_vpc_network" "app-network" {
+  name = "reddit-app-network"
+}
+
+resource "yandex_vpc_subnet" "app-subnet" {
+  name           = "reddit-app-subnet"
+  zone           = "ru-central1-a"
+  network_id     = "${yandex_vpc_network.app-network.id}"
+  v4_cidr_blocks = ["192.168.10.0/24"]
 }
