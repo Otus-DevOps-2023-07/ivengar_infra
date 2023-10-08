@@ -10,9 +10,9 @@
 
 
 resource "yandex_compute_instance" "db" {
-  name = "reddit-app"
+  name = "reddit-db"
   labels = {
-    tags = "reddit-app"
+    tags = "reddit-db"
   }
 
   resources {
@@ -22,12 +22,14 @@ resource "yandex_compute_instance" "db" {
 
   boot_disk {
     initialize_params {
-      image_id = var.db_disk_image
+      image_id = var.image_id
     }
   }
 
   network_interface {
-    subnet_id = yandex_vpc_subnet.app-subnet.id
+    # Указан id подсети default-ru-central1-a
+    subnet_id = "e9bkvpg4erv0vcrhetcm"
+    # subnet_id = yandex_vpc_subnet.app-subnet.id
     nat = true
   }
 

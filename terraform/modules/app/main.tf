@@ -12,9 +12,12 @@
 resource "yandex_compute_instance" "app" {
   count = 1
   name = "reddit-app-${count.index}"
+  labels = {
+  tags = "reddit-app"
+  }
   metadata = {
     # ssh-keys = "ubuntu:${file("~/.ssh/appuser.pub")}"
-    ssh-keys = "ycuser:${file(var.public_key_path)}"
+    ssh-keys = "ubuntu:${file(var.public_key_path)}"
   }
   resources {
     cores  = 2
@@ -28,8 +31,8 @@ resource "yandex_compute_instance" "app" {
   }
   network_interface {
     # Указан id подсети default-ru-central1-a
-    # subnet_id = "e9bkvpg4erv0vcrhetcm"
-    subnet_id = yandex_vpc_subnet.app-subnet.id
+    subnet_id = "e9bkvpg4erv0vcrhetcm"
+    # subnet_id = yandex_vpc_subnet.app-subnet.id
     nat       = true
   }
 
