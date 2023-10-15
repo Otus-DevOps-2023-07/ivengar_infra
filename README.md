@@ -69,3 +69,23 @@ https://developer.hashicorp.com/packer/integrations/hashicorp/yandex/latest/comp
 
 1. Выполнил настройку по слайдам дз с 1 по 46
 2. Выполнил первое задание
+
+# ДЗ Ansible-1
+
+1. Установил ансибл:
+	sudo apt-add-repository ppa:ansible/ansible
+	sudo apt update
+	sudo apt install ansible
+
+2. Настрол файл inventory.
+	reddit-db ansible_host=<ext_ip> ansible_user=ubuntu ansible_private_key_file="/home/appuser/.ssh/ubuntu"
+ Проверка:
+ansible reddit-db -i ./inventory -m ping
+Enter passphrase for key '/home/appuser/.ssh/ubuntu':
+reddit-db | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python3"
+    },
+    "changed": false,
+    "ping": "pong"
+}
