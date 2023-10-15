@@ -89,3 +89,21 @@ reddit-db | SUCCESS => {
     "changed": false,
     "ping": "pong"
 }
+3. проверил выполнение произвольных комманд:
+	ansible dbserver -m command -a uptime
+4. проверил работу с группами хостов:
+	ansible app -m ping
+5. выполнил создание inventory.yml
+	ansible all -m ping -i inventory.yml
+6. проверка компонентов на серверах:
+	ansible app -m command -a 'ruby -v'
+	ansible app -m command -a 'bundler -v'
+	или обе
+	ansible app -m command -a 'ruby -v; bundler -v' - но это не работает )
+	ansible app -m shell -a 'ruby -v; bundler -v' - вот так работает
+7. Проверка сервера бд
+	ansible db -m command -a 'systemctl status mongod'
+	ansible db -m shell -a 'systemctl status mongod'
+	ansible db -m systemd -a name=mongod
+	или
+	ansible db -m service -a name=mongod
