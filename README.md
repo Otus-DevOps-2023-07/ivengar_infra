@@ -107,3 +107,21 @@ reddit-db | SUCCESS => {
 	ansible db -m systemd -a name=mongod
 	или
 	ansible db -m service -a name=mongod
+8. Установка git
+	ansible app -u ubuntu -b -K -m shell -a "sudo apt install -y git"
+	Проверка:
+	ansible app -m apt -a name=git
+9. Клонирование репозитория в новую директорию:
+	ansible app -m git -a 'repo=https://github.com/express42/reddit.git dest=/home/ubuntu/reddit'
+10. Создал и выполнил ansible-playbook clone.yml
+	- name: Clone
+		hosts: app
+		tasks:
+	- name: Clone repo
+		git:
+		repo: https://github.com/express42/reddit.git
+		dest: /home/appuser/reddit
+11.  Удалил и заново залил репозиторий:
+	ansible app -m command -a 'rm -rf ~/reddit'
+	ansible-playbook clone.yml
+ 	Изменился параметр change потому что заново залился repo
