@@ -1,11 +1,31 @@
----
 - name: Configure hosts & deploy application
-        hosts: all
-        tasks:
-        - name: Change mongo config file
-                become: true
-                template:
-                        src: templates/mongod.conf.j2
-                        dest: /etc/mongod.conf
-                        mode: 0644
-                        tags: db-tag
+  hosts: all
+  vars:
+    mongo_bind_ip: 51.250.79.135
+  tasks:
+  - name: Change mongo config file
+    become: true
+    template:
+      src: templates/mongod.conf.j2
+      dest: /etc/mongod.conf
+      mode: 0644
+    tags: db-tag
+    notify: restart mongodb
+  - name: Add unit file for Puma
+    become: true
+    copy:
+      src: files/puma.service
+      dest: /etc/systemd/system/puma.service
+      tags: app-tag
+    notify: reload puma
+  - name: enable puma
+    become: true
+    systemd: name=puma enabled=yes
+    tags: app-tag
+  handlers:
+  - name: restart mongodb
+    become: true
+    service: name=mongodb state=restarted
+  - name: reload puma
+    become: true
+    systemd: name=puma state=restarted
