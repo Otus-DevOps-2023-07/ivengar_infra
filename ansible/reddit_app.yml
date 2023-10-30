@@ -1,7 +1,8 @@
 - name: Configure hosts & deploy application
   hosts: all
   vars:
-    mongo_bind_ip: 51.250.79.135
+    mongo_bind_ip: 0.0.0.0
+    db_host: 51.250.4.17
   tasks:
   - name: Change mongo config file
     become: true
@@ -16,6 +17,11 @@
     copy:
       src: files/puma.service
       dest: /etc/systemd/system/puma.service
+      tags: app-tag
+  - name: Add config for DB connection
+    template:
+      src: templates/db_config.j2
+      dest: /home/appuser/db_config
       tags: app-tag
     notify: reload puma
   - name: enable puma

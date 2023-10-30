@@ -1,9 +1,9 @@
 app:
         hosts:
                 reddit-app-0:
-                        ansible_host: 51.250.2.190 # ansible_user=ubuntu ansible_private_key_file="/home/appuser/.ssh/ubuntu"
+                        ansible_host: 51.250.94.103 # ansible_user=ubuntu ansible_private_key_file="/home/appuser/.ssh/ubuntu"
 
 db:
         hosts:
                 reddit-db:
-                        ansible_host: 51.250.79.135
+                        ansible_host: 84.252.130.140
