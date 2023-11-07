@@ -45,11 +45,11 @@ resource "yandex_compute_instance" "app" {
     # путь до приватного ключа
     private_key = file(var.private_key_path)
   }
-  provisioner "file" {
-    source      = "/home/appuser/gith/ivengar_infra/terraform/modules/app/files/puma.sevice"
-    destination = "/tmp/puma.service"
-  }
-  provisioner "remote-exec" {
-    script = "files/deploy.sh"
-  }
+#  provisioner "file" {
+#    source      = "/home/appuser/gith/ivengar_infra/terraform/modules/app/files/puma.sevice"
+#    destination = "/tmp/puma.service"
+#  }
+#  provisioner "remote-exec" {
+#    script = "files/deploy.sh"
+#  }
 }
