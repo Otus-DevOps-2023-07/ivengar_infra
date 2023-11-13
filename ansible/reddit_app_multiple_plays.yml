@@ -60,7 +60,15 @@
 - name: Deploy App
   hosts: app
   tags: deploy-tag
+  become: true
   tasks:
+    - name: install  git
+      ansible.builtin.apt:
+        update_cache: yes
+        state: present
+        name:
+          - git
+
     - name: Fetch the latest version of application code
       git:
         repo: 'https://github.com/express42/reddit.git'
