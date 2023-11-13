@@ -1,9 +1,9 @@
 app:
         hosts:
                 reddit-app-0:
-                        ansible_host: 51.250.64.207
+                        ansible_host: 158.160.37.68
 
 db:
         hosts:
                 reddit-db:
-                        ansible_host: 51.250.92.140
+                        ansible_host: 158.160.126.132
