@@ -9,7 +9,7 @@
 
   - name: Add unit file for Puma
     copy:
-      src: files/puma.service
+      src: ./files/puma.service
       dest: /etc/systemd/system/puma.service
     notify: reload puma
 
@@ -20,12 +20,17 @@
       mode: 0644
       owner: ubuntu
       group: ubuntu
+    notify:
+    - restart puma
 
   - name: enable puma
     systemd: name=puma enabled=yes
+    notify:
+    - restart puma
 
 #######################################
   handlers:
 
   - name: reload puma
+    become: true
     systemd: name=puma state=restarted

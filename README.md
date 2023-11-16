@@ -125,3 +125,16 @@ reddit-db | SUCCESS => {
 	ansible app -m command -a 'rm -rf ~/reddit'
 	ansible-playbook clone.yml
  	Изменился параметр change потому что заново залился repo
+
+
+# ДЗ Ansible-2
+
+1. Выполнил задания из PDF
+	создал файлы: 	app.yml
+			db.yml
+			site.yml
+			eddit_app_multiple_plays.yml
+			reddit_app_one_play.yml
+
+2. Создал 	packer/db.json
+		packer/app.json
