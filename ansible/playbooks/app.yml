@@ -1,14 +1,7 @@
-#- name: Deploy application
-#  hosts: app
-#  tags: app-tag
-#  become: true
-- name: Configure App
+---
+- name: Configure host and deploy app
   hosts: app
-  become: true
-
-  vars:
-    db_host: 10.128.0.38
+  become: yes
 
   roles:
     - app
-    - jdauphant.nginx
