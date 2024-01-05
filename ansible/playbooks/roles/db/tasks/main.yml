@@ -1,7 +1,0 @@
----
-- name: Show host environment info
-  debug:
-   msg: "This host is ins {{ env }} environment"
-
-- include: install_mongo.yml
-- include: config_mongo.yml

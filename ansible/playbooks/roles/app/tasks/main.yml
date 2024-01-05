@@ -1,7 +1,0 @@
----
-- name: Show host environment info
-  debug:
-   msg: "This host is ins {{ env }} environment"
-
-- include_tasks: ruby.yml
-- include_tasks: puma.yml
