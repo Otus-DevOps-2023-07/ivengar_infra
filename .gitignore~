@@ -1,4 +1,5 @@
 packer/variables.pkr.hcl
+packer/variables.json
 *.tfstate
 *.tfstate.*.backup
 *.tfstate.backup
@@ -6,10 +7,4 @@ packer/variables.pkr.hcl
 .terraform/
 *.retry
 jdauphant.nginx
-# Vagrant & molecule
-.vagrant/
-*.log
-*.pyc
-.molecule
-.cache
-.pytest_cache
+vault.key
