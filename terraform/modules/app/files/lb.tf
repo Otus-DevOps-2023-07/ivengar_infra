@@ -16,7 +16,7 @@ resource "yandex_lb_network_load_balancer" "lb" {
   name = "lb-server"
   listener {
     name = "lb-listener"
-    port = 9292
+    port = 80
     external_address_spec {
       ip_version = "ipv4"
     }
@@ -31,7 +31,7 @@ resource "yandex_lb_network_load_balancer" "lb" {
       unhealthy_threshold = 3
       healthy_threshold   = 2
       http_options {
-        port = 9292
+        port = 80
       }
     }
   }
