@@ -5,7 +5,6 @@ packer/variables.pkr.hcl
 *.tfvars
 .terraform/
 *.retry
-jdauphant.nginx
 # Vagrant & molecule
 .vagrant/
 *.log
