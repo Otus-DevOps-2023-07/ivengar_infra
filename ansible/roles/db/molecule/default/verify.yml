@@ -1,0 +1,7 @@
+---
+- name: Check DB port
+  gather_facts: false
+  tasks:
+  - name: Is DB listening port 27017?
+    ansible.builtin.assert:
+      that: true
